@@ -22,8 +22,10 @@ def initialize_vectorstore():
 
 
 if __name__ == "__main__":
-    print(sys.argv)
-    file_path = sys.argv[1]
+    file_path = os.listdir()
+    for path in file_path:
+        if path.endswith(".pdf"):
+            file_path = path
     loader = PyPDFLoader(file_path)
     raw_docs = loader.load()
 
